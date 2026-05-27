@@ -25,7 +25,7 @@ router.post('/', async (req: Request<{}, {}, ContactBody>, res: Response) => {
   }
 
   const { error } = await resend.emails.send({
-    from: 'Portfolio <onboarding@resend.dev>',
+    from: 'Joey Maes <hello@joeymaes.dev>',
     to: process.env.CONTACT_EMAIL!,
     subject: `Portfolio contact: ${subject}`,
     html: `
