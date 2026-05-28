@@ -6,7 +6,16 @@ import contactRouter from './routes/contact'
 const app = express()
 const PORT = process.env.PORT || 3001
 
-app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:5174'], credentials: true }))
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'https://fullstack-portfolio-nu-bay.vercel.app',
+    'https://fullstack-portfolio-penny-and-wish.vercel.app',
+    'https://fullstack-portfolio-git-main-penny-and-wish.vercel.app',
+  ],
+  credentials: true,
+}))
 app.use(express.json())
 
 app.get('/health', (_, res) => {
