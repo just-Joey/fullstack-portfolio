@@ -1,5 +1,15 @@
 import { useState, useEffect } from "react";
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+  return isMobile;
+}
+
 const CONTACT_API = import.meta.env.VITE_API_URL 
   ? `${import.meta.env.VITE_API_URL}/contact`
   : "http://localhost:3001/contact";
@@ -167,6 +177,7 @@ function ContactForm() {
   const [form, setForm] = useState<ContactForm>({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const isMobile = useIsMobile();
 
   const inputStyle = {
     width: "100%",
@@ -260,7 +271,7 @@ function ContactForm() {
       borderRadius: "8px",
       padding: "28px",
     }}>
-      <div style={{ display: "flex", gap: "12px", marginBottom: "12px" }}>
+      <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", marginBottom: "12px" }}>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "6px", fontFamily: "'JetBrains Mono', monospace" }}>NAME</div>
           <input
@@ -344,6 +355,7 @@ function ContactForm() {
 export default function Portfolio() {
   const [activeProject, setActiveProject] = useState(projects[0]);
   const [tab, setTab] = useState<"overview" | "stack" | "highlights">("overview");
+  const isMobile = useIsMobile();
 
   return (
     <div style={{
@@ -408,6 +420,7 @@ export default function Portfolio() {
             borderRadius: "8px",
             padding: "20px 24px",
             maxWidth: "580px",
+            overflowX: "auto",
           }}>
             <div style={{ display: "flex", gap: "6px", marginBottom: "16px" }}>
               {["#ef4444", "#f59e0b", "#22c55e"].map((c, i) => (
@@ -437,7 +450,7 @@ export default function Portfolio() {
             <div style={{ flex: 1, height: "1px", background: "#1e293b" }} />
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "24px" }}>
             <div>
               {projects.map((p) => (
                 <ProjectCard
@@ -598,7 +611,7 @@ export default function Portfolio() {
             <div style={{ flex: 1, height: "1px", background: "#1e293b" }} />
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", alignItems: "start" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "24px", alignItems: "start" }}>
             <div>
               <div style={{ fontSize: "14px", color: "#f1f5f9", marginBottom: "8px" }}>
                 Open to the right opportunity
@@ -640,7 +653,7 @@ export default function Portfolio() {
         </div>
 
         {/* Footer */}
-        <div style={{ paddingTop: "24px", borderTop: "1px solid #1e293b", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ paddingTop: "24px", borderTop: "1px solid #1e293b", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
           <span style={{ fontSize: "11px", color: "#2d3748", fontFamily: "'JetBrains Mono', monospace" }}>
             joey maes · joeymaes.dev · {new Date().getFullYear()}
           </span>
