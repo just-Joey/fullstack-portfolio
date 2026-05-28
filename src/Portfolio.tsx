@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
-const CONTACT_API = "http://localhost:3001/contact";
+const CONTACT_API = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/contact`
+  : "http://localhost:3001/contact";
 
 const projects = [
   {
