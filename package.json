@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "dev": "vite",
-  "dev:backend": "cd ../portfolio-backend && yarn dev",
-  "dev:all": "concurrently \"yarn dev\" \"yarn dev:backend\"",
-  "build": "vite build",
-  "preview": "vite preview"
+    "dev": "vite",
+    "dev:backend": "cd ../portfolio-backend && yarn dev",
+    "dev:all": "concurrently \"yarn dev\" \"yarn dev:backend\"",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
