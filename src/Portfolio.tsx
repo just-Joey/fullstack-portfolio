@@ -64,7 +64,7 @@ const projects = [
   {
     id: "feedback",
     label: "team-feedback-app",
-    status: "LIVE",
+    status: "UPDATING",
     statusColor: "#22c55e",
     year: "2025",
     tagline: "Fullstack feedback and performance review tool for engineering teams",
@@ -78,7 +78,7 @@ const projects = [
       "Responsive React frontend with role-based views",
     ],
     github: "https://github.com/just-joey",
-    live: "https://your-team-feedback-url.vercel.app",
+    live: "https:/team-feedback-system.vercel.app",
     color: "#14b8a6",
     icon: "◇",
   },
