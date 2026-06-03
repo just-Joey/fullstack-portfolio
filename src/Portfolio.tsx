@@ -78,7 +78,7 @@ const projects = [
       "Responsive React frontend with role-based views",
     ],
     github: "https://github.com/just-joey",
-    live: "https:/team-feedback-system.vercel.app",
+    live: "https://team-feedback-system.vercel.app",
     color: "#14b8a6",
     icon: "◇",
   },
