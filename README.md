@@ -2,7 +2,7 @@
 
 Personal portfolio site built with React + TypeScript + Vite.
 
-**Live:** https://your-portfolio-url.vercel.app
+**Live:** https://www.joeymaes.dev
 
 ## Stack
 - React + TypeScript
