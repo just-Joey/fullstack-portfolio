@@ -13,6 +13,8 @@ app.use(cors({
     'https://fullstack-portfolio-nu-bay.vercel.app',
     'https://fullstack-portfolio-penny-and-wish.vercel.app',
     'https://fullstack-portfolio-git-main-penny-and-wish.vercel.app',
+    'https://joeymaes.dev',
+    'https://www.joeymaes.dev',
   ],
   credentials: true,
 }))
